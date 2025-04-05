@@ -1,0 +1,98 @@
+body {
+    font-family: 'Barlow Condensed', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #e9c881;
+    padding: 15px;
+    text-align: center;
+}
+
+.navbar-brand {
+    font-family: "Staatliches";
+    color: #e9c881;
+    font-size: 2rem;
+    margin-left: 10px;
+}
+
+.nav-item {
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+.about {
+    padding: 40px 20px;
+    text-align: center;
+    font-family: "Pridi";
+    background-color: #e9c881;
+}
+h3 {
+    font-family: "staatliches";
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.about-box {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .about-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .about-box p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+  
+  .about-box img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: auto; 
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .col-md-4 {
+    display: flex;
+    flex-direction: column;
+  }
+
+footer {
+    background-color: #000000;
+    color: white;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  .footer a {
+    font-family: "Pridi";
+    color: rgb(255, 255, 255);
+    text-decoration: underline;
+  }
+  .footer a:hover {
+    color: rgb(141, 141, 141);
+  }
+  .footer p {
+    font-family: 'barlow condensed';
+      margin: 0;
+  }

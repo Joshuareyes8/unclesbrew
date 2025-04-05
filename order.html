@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Holtwood+One+SC&family=Pridi:wght@200;300;400;500;600;700&family=Staatliches&display=swap" rel="stylesheet">    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="order.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="home.html">Uncle's Brew</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="home.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="menu2.html">Product</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="aboutus.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="location.html">Location</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="faq.html">FAQS</a>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+<div class="container-fluid overflow-hidden px-lg-0" style="margin: 6rem 0;">
+  <div class="container px-lg-0">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="reservation-form text-center" id="reservationForm">
+          <h2>PLACE AN ORDER (PICK-UP ONLY)</h2>
+          <p>The only available option for ordering is pick-up. You'll have to visit the store to get what you ordered and pay.</p>
+          <div id="cart"></div>
+          <div id="total"></div>
+          <form id="form" action="https://formspree.io/f/xdkewrva" method="POST" enctype="multipart/form-data" onsubmit="return handleCheckout()">
+            <input type="hidden" name="_autoresponse" id="autoresponse" value="Thank you for your order! We will prepare it and notify you when it's ready for pick-up.">
+            <div class="form-group">
+              <label for="name">NAME:</label>
+              <input type="text" id="name" name="Name" required>
+            </div>
+            <div class="form-group">
+              <label for="address">ADDRESS:</label>
+              <input type="text" id="address" name="address" required maxlength="255">
+              <small id="address-error" style="color: red;"></small>
+            </div>
+            <div class="form-group">
+              <label for="phone">PHONE NUMBER:</label>
+              <input type="tel" id="phone" name="Phone Number" pattern="|+63[0-9]{10}" maxlength="13" value="+63" oninput="preventPrefixRemoval(event)" required>
+            </div>
+            <div class="form-group">
+              <label for="email">EMAIL:</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <p>Please give us some time to prepare (depending on your order). Thank you!</p>
+            <div class="form-group">
+              <label for="pickup-time">PICK-UP TIME (2:30 PM - 11:00 PM):</label>
+              <input type="time" id="pickup-time" name="Pick-up Time" min="14:30" max="23:00" required>
+            </div>
+            <div class="form-group text-center">
+              <h3>MAKE A PAYMENT OF AT LEAST 50% THROUGH GCASH.</h3>
+              <p>Scan the QR code below to make a payment:</p>
+              <img src="./image/scanqr.jpg" alt="GCash QR Code" style="max-width: 200px;">
+              <p><a href="gcash://pay" target="_blank" class="open-gcash-app">Open GCash App</a></p>
+            </div>
+            <div class="form-group">
+              <label for="gcash-reference">GCash Reference Number:</label>
+              <input type="text" id="gcash-reference" name="gcash-reference" required>
+            </div>
+          
+            <div class="form-group d-flex justify-content-between">
+            <input type="submit" value="SUBMIT" class="btn btn-checkout">
+            <a href="menu2.html" class="btn btn-checkout">BACK TO MENU</a>
+          </form>
+        </div>
+        </div>
+        </div>
+        </div>
+      </div>
+    </div>
+<footer class="footer text-center py-3">
+  <a href="home.html">Home</a> | <a href="menu2.html">Product</a> | <a href="aboutus.html">About Us</a> | <a href="contact.html">Contact Us</a> | <a href="location.html">Location</a> | <a href="faq.html">FAQs</a>
+    <p>&copy;2025 Uncle's Brew<br>All Rights Reserved.</p>
+</footer>
+
+<script>
+  function handleCheckout() {
+    localStorage.removeItem('cart');
+
+    alert('Thank you for your order! You will be redirected to the menu.');
+
+    window.location.href = 'menu2.html';
+
+    return false;
+  }
+
+  function updateCart() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || []; 
+    const cartElement = document.getElementById('cart');
+    const totalElement = document.getElementById('total');
+    let cartContent = '';
+    let total = 0;
+    let totalItems = 0;
+
+    if (cart.length === 0) {
+      cartElement.innerHTML = '<p>Your cart is empty.</p>';
+      totalElement.innerHTML = '<p><strong>Total Price: ₱0.00</strong></p>';
+      return;
+    }
+
+    cart.forEach((cartItem, index) => {
+      const itemTotal = cartItem.quantity * cartItem.price;
+      cartContent += `
+        <div class="cart-item">
+          <p>${cartItem.name} (${cartItem.size}): ${cartItem.quantity} x ₱${cartItem.price} = ₱${itemTotal.toFixed(2)}</p>
+        </div>`;
+      total += itemTotal;
+      totalItems += cartItem.quantity; 
+    });
+
+    cartElement.innerHTML = cartContent;
+    totalElement.innerHTML = `
+      <p><strong>Total Items: ${totalItems}</strong></p>
+      <p><strong>Total Price: ₱${total.toFixed(2)}</strong></p>`;
+    document.getElementById('cart-items').value = JSON.stringify(cart);
+  }
+
+  function removeFromCart(index) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCart();
+  }
+
+  document.addEventListener('DOMContentLoaded', updateCart);
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

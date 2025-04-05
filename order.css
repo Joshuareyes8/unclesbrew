@@ -1,0 +1,261 @@
+body {
+  background-color: #e9c881;
+  font-family: 'Barlow Condensed', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h3 {
+  font-family: 'Pridi', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.navbar-brand {
+  font-family: 'Staatliches';
+  color: #e9c881;
+  font-size: 2rem;
+  margin-left: 10px;
+}
+
+.nav-item {
+  font-family: 'Barlow Condensed'; 
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+
+.btn-checkout {
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  font-family: 'Pridi', sans-serif;
+  border-radius: 5px;
+  padding: 10px 20px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+.btn-checkout:hover {
+  background-color: #e9c881;
+  transform: translateY(-3px);
+}
+
+#scrollTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+
+#scrollTopBtn:hover {
+  background-color: #555;
+}
+
+#scrollTopBtn i {
+  font-size: 24px; 
+}
+
+.reservation-form {
+  margin-top: 20px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reservation-form .form-group {
+  margin-bottom: 15px;
+}
+
+.reservation-form h2 {
+  font-family: 'Staatliches', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.reservation-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.reservation-form input[type="text"],
+.reservation-form input[type="tel"],
+.reservation-form input[type="email"],
+.reservation-form input[type="time"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.reservation-form .btn-checkout {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.message-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  padding: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: background-color 0.3s;
+}
+
+.message-icon i {
+  font-size: 24px;
+}
+
+.message-icon:hover {
+  background-color: #e9c881;
+}
+
+.chatbot-container {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  z-index: 1000;
+  display: none;
+}
+
+.chatbot-header {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatbot-body {
+  padding: 10px;
+}
+
+.chatbot-messages {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+.chatbot-input {
+  display: flex;
+}
+
+.chatbot-input input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.chatbot-input button {
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.chatbot-input button:hover {
+  background-color: #e9c881;
+}
+
+.contact-info {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 30px;
+}
+
+.contact-info h2 {
+  margin-bottom: 20px;
+}
+
+.contact-info p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.contact-info a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+#form-status {
+  margin-top: 20px;
+}
+
+#form-status p {
+  font-size: 1rem;
+}
+
+.open-gcash-app {
+  display: inline-block;
+  background-color: #000000;
+  color: white;
+  padding: 5px 40px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.open-gcash-app:hover {
+  background-color: #e9c881;
+  transform: translateY(-3px);
+}
+footer {
+  background-color: #000000;
+  color: white;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer a {
+  font-family: "Pridi";
+  color: rgb(255, 255, 255);
+  text-decoration: underline;
+}
+
+.footer a:hover {
+  color: rgb(141, 141, 141);
+}
+
+.footer p {
+  font-family: 'barlow condensed';
+  margin: 0;
+}

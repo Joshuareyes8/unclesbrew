@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Uncle's Brew Location</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Style+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Holtwood+One+SC&family=Pridi:wght@200;300;400;500;600;700&family=Staatliches&display=swap" rel="stylesheet">    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="location.css">
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="home.html">Uncle's Brew</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="home.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="menu2.html">Product</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="aboutus.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="location.html">Location</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="faq.html">FAQs</a>
+            </li>
+              </ul>
+        </div>
+      </div>
+    </nav>  
+
+<header class="header">
+  <h1 style="font-size: 10vh; font-family: 'Holtwood One SC', serif; text-align: center; color: #ffffff; text-shadow: 1px 5px 2px black; font-weight: bold;">Our Location</h1>
+</header>
+
+<section class="location-section text-center">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.7414346247947!2d120.95971647457317!3d14.613799976754441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b58a846e99f1%3A0x395ebb0e2f7d052b!2s86b%20Quezon%20St%2C%20Tondo%2C%20Manila%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1740896825397!5m2!1sen!2sph" width="80%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="store-image mt-4">
+        <img src="./image/shop.jpg" alt="Uncle's Brew Store" style="width: 80%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    </div>
+</section>
+
+<footer class="footer text-center py-3">
+  <a href="home.html">Home</a> | <a href="menu2.html">Product</a> | <a href="aboutus.html">About Us</a> | <a href="contact.html">Contact Us</a> | <a href="location.html">Location</a> | <a href="faq.html">FAQs</a>
+    <p>&copy;2025 Uncle's Brew<br>All Rights Reserved.</p>
+</footer>
+
+<script>
+  let map;
+  let marker;
+  let autocomplete;
+
+  function initAutocomplete() {
+    const input = document.getElementById('location');
+    autocomplete = new google.maps.places.Autocomplete(input);
+    autocomplete.addListener('place_changed', onPlaceChanged);
+
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: { lat: 14.6138, lng: 120.9597 }, // Center the map to the location of Uncle's Brew
+      zoom: 15,
+    });
+
+    marker = new google.maps.Marker({
+      map: map,
+      draggable: true,
+    });
+
+    google.maps.event.addListener(marker, 'dragend', function() {
+      const position = marker.getPosition();
+      input.value = position.lat() + ', ' + position.lng();
+    });
+  }
+
+  function onPlaceChanged() {
+    const place = autocomplete.getPlace();
+    if (!place.geometry) {
+      return;
+    }
+
+    if (place.geometry.viewport) {
+      map.fitBounds(place.geometry.viewport);
+    } else {
+      map.setCenter(place.geometry.location);
+      map.setZoom(17);
+    }
+
+    marker.setPosition(place.geometry.location);
+    marker.setVisible(true);
+  }
+
+  google.maps.event.addDomListener(window, 'load', initAutocomplete);
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

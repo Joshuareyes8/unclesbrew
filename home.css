@@ -1,0 +1,349 @@
+body {
+    background: linear-gradient(to bottom, #f4be78, #fff4e5);
+    font-family: "barlow condensed";
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-brand {
+    font-family: "Staatliches";
+    color: #e9c881;
+    font-size: 2rem;
+    margin-left: 10px;
+}
+
+.nav-item {
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+h2 {
+    font-family: "Staatliches";
+    font-size: 3.5rem;
+    font-weight: 500;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.message-icon {
+    position: fixed;
+    bottom: 25px;
+    right: 20px;
+    background-color: #000000;
+    color: white;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .message-icon i {
+    font-size: 24px;
+  }
+  
+  .message-icon:hover {
+    background-color: #dbab6b;
+    transform: translateY(-3px);
+  }
+
+  .chatbot-container {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    z-index: 1000;
+    display: none;
+}
+
+.chatbot-header {
+    background-color: #dbab6b;
+    color: white;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chatbot-body {
+    padding: 10px;
+}
+
+.chatbot-messages {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.chatbot-predefined-questions button {
+    background-color: #dbab6b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.chatbot-predefined-questions button:hover {
+    background-color: #000000;
+    transform: translateY(-3px);
+}
+
+.chatbot-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.chatbot-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.chatbot-input button {
+    padding: 10px;
+    background-color: #dbab6b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.chatbot-input button:hover {
+    background-color: #000000;
+    transform: translateY(-3px);
+}
+
+  .hero {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.hero video {
+    width: 100%;
+    height: auto;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.hero-text h2 {
+    font-size: 3.5rem;
+    font-family: "Style Script";
+    font-weight: 500;
+    color: #e9c881;
+    text-shadow: #000000 2px 2px;
+}
+
+.hero-text p {
+    font-family: "Pridi";
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.hero-text .button {
+    background-color: #e9c881;
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    font-weight: 500;
+}
+
+.hero-text .button:hover {
+    background-color: white;
+}
+
+.catchy-caption {
+    padding: 40px 20px;
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.catchy-caption h2 {
+    font-family: "Staatliches";
+    color: #000000;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.catchy-caption p {
+    font-family: "Pridi";
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.catchy-caption .button {
+    background-color: #e9c881;
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    font-weight: 500;
+}
+
+.catchy-caption .button:hover {
+    background-color: white;
+}
+
+.catchy-caption img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #000000;
+    color: white;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  .footer a {
+    font-family: "Pridi";
+    color: rgb(255, 255, 255);
+    text-decoration: underline;
+  }
+  .footer a:hover {
+    color: rgb(141, 141, 141);
+  }
+  .footer p {
+    font-family: 'barlow condensed';
+      margin: 0;
+  }
+
+@media (min-width: 1024px) {
+    .chatbot-container {
+        width: 350px;
+        bottom: 30px;
+        right: 30px;
+    }
+
+    .chatbot-messages {
+        max-height: 400px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .chatbot-container {
+        width: 80%;
+        bottom: 20px;
+        right: 10px;
+    }
+
+    .chatbot-header {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .chatbot-messages {
+        max-height: 250px;
+    }
+
+    .chatbot-predefined-questions button {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .chatbot-input input {
+        padding: 8px;
+    }
+
+    .chatbot-input button {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    .chatbot-container {
+        bottom: 20px;
+        right: 10px;
+        width: 90%; 
+    }
+
+    .chatbot-header {
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    .chatbot-messages {
+        max-height: 200px; 
+    }
+
+    .chatbot-predefined-questions button {
+        padding: 5px;
+        font-size: 12px;
+    }
+
+    .chatbot-input input {
+        padding: 8px;
+    }
+
+    .chatbot-input button {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .chatbot-container {
+        width: 100%;
+        bottom: 0;
+        right: 0;
+        border-radius: 0;
+        max-height: 300px;
+    }
+
+    .chatbot-header {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    .chatbot-messages {
+        max-height: 150px;
+    }
+
+    .chatbot-predefined-questions button {
+        padding: 4px;
+        font-size: 10px;
+    }
+
+    .chatbot-input input {
+        padding: 5px;
+    }
+
+    .chatbot-input button {
+        padding: 5px;
+    }
+}

@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Place an Order</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Style+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Holtwood+One+SC&family=Pridi:wght@200;300;400;500;600;700&family=Staatliches&display=swap" rel="stylesheet">    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="menu2.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="home.html">Uncle's Brew</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="menu2.html">Product</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="aboutus.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="location.html">Location</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="faq.html">FAQS</a>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="header">
+    <h1 style="font-size: 10vh; font-family: 'Holtwood One SC', serif; text-align: center; color: #ffffff; text-shadow: 1px 5px 2px black; font-weight: bold;">Menu</h1>
+  </header>
+
+  <div class="category-buttons">
+    <button class="btn btn-custom" onclick="showCategory('icedcoffee')">Iced Coffee</button>
+    <button class="btn btn-custom" onclick="showCategory('milktea')">Milk Tea</button>
+    <button class="btn btn-custom" onclick="showCategory('fruittea')">Fruit Tea</button>
+    <button class="btn btn-custom" onclick="showCategory('frappuccino')">Frappuccino</button>
+    <button class="btn btn-custom" onclick="showCategory('addons')">Add-ons</button>
+  </div>
+
+  <div class="product-category" id="icedcoffee">
+    <div class="product-grid">
+        <div class="product best-seller" id="Kopi Matcha">
+        <img src="./image/kopimatcha.jpg" alt="KopiMatcha" class="product-image">
+        <h3>Kopi Matcha</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-KopiMatcha" value="29" checked>Solo ₱29</label>
+          <label><input type="radio" name="size-KopiMatcha" value="39">Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('KopiMatcha')">-</button>
+          <input type="number" id="KopiMatcha" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('KopiMatcha')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('KopiMatcha', getSelectedSize('KopiMatcha'), getQuantity('KopiMatcha'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('KopiMatcha', getSelectedSize('KopiMatcha'))">Remove Order</button>
+      </div>
+      <div class="product best-seller" id="Kopi Macchiato">
+        <img src="./image/image7.jpg" alt="KopiMacchiato" class="product-image">
+        <h3>Kopi Macchiato</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-KopiMacchiato" value="29" checked>Solo ₱29</label>
+          <label><input type="radio" name="size-KopiMacchiato" value="39">Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('KopiMacchiato')">-</button>
+          <input type="number" id="KopiMacchiato" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('KopiMacchiato')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('KopiMacchiato', getSelectedSize('KopiMacchiato'), getQuantity('KopiMacchiato'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('KopiMacchiato', getSelectedSize('KopiMacchiato'))">Remove Order</button>
+      </div>
+      <div class="product" id="Kopi Vanilla">
+        <img src="./image/image9.jpg" alt="KopiVanilla" class="product-image">
+        <h3>Kopi Vanilla</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-KopiVanilla" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-KopiVanilla" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('KopiVanilla')">-</button>
+          <input type="number" id="KopiVanilla" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('KopiVanilla')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('KopiVanilla', getSelectedSize('KopiVanilla'), getQuantity('KopiVanilla'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('KopiVanilla', getSelectedSize('KopiVanilla'))">Remove Order</button>
+      </div>
+      <div class="product" id="Kopi Cappuccino">
+        <img src="./image/image6.jpg" alt="KopiCappuccino" class="product-image">
+        <h3>Kopi Cappuccino</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-KopiCappuccino" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-KopiCappuccino" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('KopiCappuccino')">-</button>
+          <input type="number" id="KopiCappuccino" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('KopiCappuccino')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('KopiCappuccino', getSelectedSize('KopiCappuccino'), getQuantity('KopiCappuccino'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('KopiCappuccino', getSelectedSize('KopiCappuccino'))">Remove Order</button>
+      </div>
+      <div class="product" id="Kopi Barako">
+        <img src="./image/image10.jpg" alt="KopiBarako" class="product-image">
+        <h3>Kopi Barako</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-KopiBarako" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-KopiBarako" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('KopiBarako')">-</button>
+          <input type="number" id="KopiBarako" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('KopiBarako')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('KopiBarako', getSelectedSize('KopiBarako'), getQuantity('KopiBarako'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('KopiBarako', getSelectedSize('KopiBarako'))">Remove Order</button>
+      </div>
+      <div class="product best-seller" id="Kopi Moca">
+        <img src="./image/image11.jpg" alt="KopiMoca" class="product-image">
+        <h3>Kopi Moca</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-KopiMoca" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-KopiMoca" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('KopiMoca')">-</button>
+          <input type="number" id="KopiMoca" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('KopiMoca')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('KopiMoca', getSelectedSize('KopiMoca'), getQuantity('KopiMoca'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('KopiMoca', getSelectedSize('KopiMoca'))">Remove Order</button>
+      </div>
+      <div class="product" id="Kopi Caramel">
+        <img src="./image/image12.jpg" alt="KopiCaramel" class="product-image">
+        <h3>Kopi Caramel</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-KopiCaramel" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-KopiCaramel" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('KopiCaramel')">-</button>
+          <input type="number" id="KopiCaramel" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('KopiCaramel')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('KopiCaramel', getSelectedSize('KopiCaramel'), getQuantity('KopiCaramel'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('KopiCaramel', getSelectedSize('KopiCaramel'))">Remove Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-category" id="milktea">
+    <div class="product-grid">
+      <div class="product best-seller" id="Matcha">
+        <img src="./image/matcha.jpg" alt="MilkTeaMatcha" class="product-image">
+        <h3>Matcha</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-MilkTeaMatcha" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-MilkTeaMatcha" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('MilkTeaMatcha')">-</button>
+          <input type="number" id="MilkTeaMatcha" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('MilkTeaMatcha')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('MilkTeaMatcha', getSelectedSize('MilkTeaMatcha'), getQuantity('MilkTeaMatcha'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('MilkTeaMatcha', getSelectedSize('MilkTeaMatcha'))">Remove Order</button>
+      </div>
+      <div class="product" id="MilkTea Cookies and Cream">
+        <img src="./image/cac.jpg" alt="MilkTeaCookiesAndCream" class="product-image">
+        <h3>Cookies and Cream</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-MilkTeaCookiesAndCream" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-MilkTeaCookiesAndCream" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('MilkTeaCookiesAndCream')">-</button>
+          <input type="number" id="MilkTeaCookiesAndCream" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('MilkTeaCookiesAndCream')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('MilkTeaCookiesAndCream', getSelectedSize('MilkTeaCookiesAndCream'), getQuantity('MilkTeaCookiesAndCream'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('MilkTeaCookiesAndCream', getSelectedSize('MilkTeaCookiesAndCream'))">Remove Order</button>
+      </div>
+      <div class="product" id="MilkTea Red Velvet">
+        <img src="./image/velvet.jpg" alt="MilkTeaRedVelvet" class="product-image">
+        <h3>Red Velvet</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-MilkTeaRedVelvet" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-MilkTeaRedVelvet" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('MilkTeaRedVelvet')">-</button>
+          <input type="number" id="MilkTeaRedVelvet" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('MilkTeaRedVelvet')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('MilkTeaRedVelvet', getSelectedSize('MilkTeaRedVelvet'), getQuantity('MilkTeaRedVelvet'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('MilkTeaRedVelvet', getSelectedSize('MilkTeaRedVelvet'))">Remove Order</button>
+      </div>
+      <div class="product best-seller" id="MilkTea Okinawa">
+        <img src="./image/okinawa.jpg" alt="MilkTeaOkinawa" class="product-image">
+        <h3>Okinawa</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-MilkTeaOkinawa" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-MilkTeaOkinawa" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('MilkTeaOkinawa')">-</button>
+          <input type="number" id="MilkTeaOkinawa" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('MilkTeaOkinawa')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('MilkTeaOkinawa', getSelectedSize('MilkTeaOkinawa'), getQuantity('MilkTeaOkinawa'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('MilkTeaOkinawa', getSelectedSize('MilkTeaOkinawa'))">Remove Order</button>
+      </div>
+      <div class="product best-seller" id="MilkTeaCheesecake">
+        <img src="./image/cheesecake.jpg" alt="MilkTeaCheesecake" class="product-image">
+        <h3>Cheesecake</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-MilkTeaCheesecake" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-MilkTeaCheesecake" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('MilkTeaCheesecake')">-</button>
+          <input type="number" id="MilkTeaCheesecake" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('MilkTeaCheesecake')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('MilkTeaCheesecake', getSelectedSize('MilkTeaCheesecake'), getQuantity('MilkTeaCheesecake'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('MilkTeaCheesecake', getSelectedSize('MilkTeaCheesecake'))">Remove Order</button>
+      </div>
+      <div class="product" id="MilkTea Taro">
+        <img src="./image/taro.jpg" alt="MilkTeaTaro" class="product-image">
+        <h3>Taro</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-MilkTeaTaro" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-MilkTeaTaro" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('MilkTeaTaro')">-</button>
+          <input type="number" id="MilkTeaTaro" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('MilkTeaTaro')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('MilkTeaTaro', getSelectedSize('MilkTeaTaro'), getQuantity('MilkTeaTaro'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('MilkTeaTaro', getSelectedSize('MilkTeaTaro'))">Remove Order</button>
+      </div>
+      <div class="product" id="MilkTea Strawberry">
+        <img src="./image/strawberry.jpg" alt="MilkTeaStrawberry" class="product-image">
+        <h3>Strawberry</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-MilkTeaStrawberry" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-MilkTeaStrawberry" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('MilkTeaStrawberry')">-</button>
+          <input type="number" id="MilkTeaStrawberry" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('MilkTeaStrawberry')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('MilkTeaStrawberry', getSelectedSize('MilkTeaStrawberry'), getQuantity('MilkTeaStrawberry'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('MilkTeaStrawberry', getSelectedSize('MilkTeaStrawberry'))">Remove Order</button>
+      </div>
+      <div class="product" id="MilkTea SaltedCaramel">
+        <img src="./image/salted.jpg" alt="MilkTeaSaltedCaramel" class="product-image">
+        <h3>Salted Caramel</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-MilkTeaSaltedCaramel" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-MilkTeaSaltedCaramel" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('MilkTeaSaltedCaramel')">-</button>
+          <input type="number" id="MilkTeaSaltedCaramel" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('MilkTeaSaltedCaramel')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('MilkTeaSaltedCaramel', getSelectedSize('MilkTeaSaltedCaramel'), getQuantity('MilkTeaSaltedCaramel'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('MilkTeaSaltedCaramel', getSelectedSize('MilkTeaSaltedCaramel'))">Remove Order</button>
+      </div>
+      <div class="product best-seller" id="MilkTea Wintermelon">
+        <img src="./image/wintermelon.jpg" alt="MilkTeaWintermelon" class="product-image">
+        <h3>Wintermelon</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-MilkTeaWintermelon" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-MilkTeaWintermelon" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('MilkTeaWintermelon')">-</button>
+          <input type="number" id="MilkTeaWintermelon" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('MilkTeaWintermelon')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('MilkTeaWintermelon', getSelectedSize('MilkTeaWintermelon'), getQuantity('MilkTeaWintermelon'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('MilkTeaWintermelon', getSelectedSize('MilkTeaWintermelon'))">Remove Order</button>
+      </div>
+      <div class="product" id="MilkTea DarkChocolate">
+        <img src="./image/darkchoco1.jpg" alt="MilkTeaCheesecake" class="product-image">
+        <h3>Dark Chocolate</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-MilkTeaDarkChocolate" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-MilkTeaDarkChocolate" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('MilkTeaDarkChocolate')">-</button>
+          <input type="number" id="MilkTeaDarkChocolate" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('MilkTeaDarkChocolate')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('MilkTeaDarkChocolate', getSelectedSize('MilkTeaDarkChocolate'), getQuantity('MilkTeaDarkChocolate'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('MilkTeaDarkChocolate', getSelectedSize('MilkTeaDarkChocolate'))">Remove Order</button>
+      </div>
+      <div class="product" id="MilkTea RockyRoad">
+        <img src="./image/rockyroad.jpg" alt="MilkTeaRockyRoad" class="product-image">
+        <h3>RockyRoad</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-MilkTeaRockyRoad" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-MilkTeaRockyRoad" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('MilkTeaRockyRoad')">-</button>
+          <input type="number" id="MilkTeaRockyRoad" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('MilkTeaRockyRoad')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('MilkTeaRockyRoad', getSelectedSize('MilkTeaRockyRoad'), getQuantity('MilkTeaRockyRoad'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('MilkTeaRockyRoad', getSelectedSize('MilkTeaRockyRoad'))">Remove Order</button>
+      </div>
+      <div class="product" id="MilkTea Cappuccino">
+        <img src="./image/cappuccino1.jpg" alt="MilkTeaCappuccino" class="product-image">
+        <h3>Cappuccino</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-MilkTeaCappuccino" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-MilkTeaCappuccino" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('MilkTeaCappuccino')">-</button>
+          <input type="number" id="MilkTeaCappuccino" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('MilkTeaCappuccino')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('MilkTeaCappuccino', getSelectedSize('MilkTeaCappuccino'), getQuantity('MilkTeaCappuccino'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('MilkTeaCappuccino', getSelectedSize('MilkTeaCappuccino'))">Remove Order</button>
+      </div>
+      <div class="product" id="MilkTea Chocolate">
+        <img src="./image/chocolate.jpg" alt="MilkTeaChocolate" class="product-image">
+        <h3>Chocolate</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-MilkTeaChocolate" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-MilkTeaChocolate" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('MilkTeaChocolate')">-</button>
+          <input type="number" id="MilkTeaChocolate" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('MilkTeaChocolate')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('MilkTeaChocolate', getSelectedSize('MilkTeaChocolate'), getQuantity('MilkTeaChocolate'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('MilkTeaChocolate', getSelectedSize('MilkTeaChocolate'))">Remove Order</button>
+      </div>
+      <div class="product" id="MilkTea JavaChips">
+        <img src="./image/javachip1.jpg" alt="MilkTeaJavaChips" class="product-image">
+        <h3>Java Chips</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-MilkTeaJavaChips" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-MilkTeaJavaChips" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('MilkTeaJavaChips')">-</button>
+          <input type="number" id="MilkTeaJavaChips" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('MilkTeaJavaChips')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('MilkTeaJavaChips', getSelectedSize('MilkTeaJavaChips'), getQuantity('MilkTeaJavaChips'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('MilkTeaJavaChips', getSelectedSize('MilkTeaJavaChips'))">Remove Order</button>
+      </div>
+      <div class="product" id="MilkTea Choco Mousse">
+        <img src="./image/chocomousse.jpg" alt="MilkTeaChocoMousse" class="product-image">
+        <h3>Choco Mousse</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-MilkTeaChocoMousse" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-MilkTeaChocoMousse" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('MilkTeaChocoMousse')">-</button>
+          <input type="number" id="MilkTeaChocoMousse" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('MilkTeaChocoMousse')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('MilkTeaChocoMousse', getSelectedSize('MilkTeaChocoMousse'), getQuantity('MilkTeaChocoMousse'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('MilkTeaChocoMousse', getSelectedSize('MilkTeaChocoMousse'))">Remove Order</button>
+      </div>
+      <div class="product" id="MilkTea Double Dutch">
+        <img src="./image/doubledutch.jpg" alt="MilkTeaDoubleDutch" class="product-image">
+        <h3>Double Dutch</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-MilkTeaDoubleDutch" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-MilkTeaDoubleDutch" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('MilkTeaDoubleDutch')">-</button>
+          <input type="number" id="MilkTeaDoubleDutch" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('MilkTeaDoubleDutch')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('MilkTeaDoubleDutch', getSelectedSize('MilkTeaDoubleDutch'), getQuantity('MilkTeaDoubleDutch'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('MilkTeaDoubleDutch', getSelectedSize('MilkTeaDoubleDutch'))">Remove Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-category" id="fruittea">
+    <div class="product-grid">
+      <div class="product" id="Kiwi">
+        <img src="./image/kiwi.jpg" alt="FruitTeaKiwi" class="product-image">
+        <h3>Kiwi</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-FruitTeaKiwi" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-FruitTeaKiwi" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('FruitTeaKiwi')">-</button>
+          <input type="number" id="FruitTeaKiwi" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('FruitTeaKiwi')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('FruitTeaKiwi', getSelectedSize('FruitTeaKiwi'), getQuantity('FruitTeaKiwi'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('FruitTeaKiwi', getSelectedSize('FruitTeaKiwi'))">Remove Order</button>
+      </div>
+      <div class="product" id="Lemon">
+        <img src="./image/lemon.jpg" alt="Fruit Tea" class="product-image">
+        <h3>Lemon</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-FruitTeaLemon" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-FruitTeaLemon" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('FruitTeaLemon')">-</button>
+          <input type="number" id="FruitTeaLemon" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('FruitTeaLemon')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('FruitTeaLemon', getSelectedSize('FruitTeaLemon'), getQuantity('FruitTeaLemon'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('FruitTeaLemon', getSelectedSize('FruitTeaLemon'))">Remove Order</button>
+      </div>
+      <div class="product best-seller" id="Lychee">
+        <img src="./image/lychee.jpg" alt="FruitTeaLychee" class="product-image">
+        <h3>Lychee</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-FruitTea Lychee" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-FruitTea Lychee" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('FruitTea Lychee')">-</button>
+          <input type="number" id="FruitTea Lychee" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('FruitTea Lychee')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('FruitTea Lychee', getSelectedSize('FruitTea Lychee'), getQuantity('FruitTea Lychee'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('FruitTea Lychee', getSelectedSize('FruitTea Lychee'))">Remove Order</button>
+      </div>
+      <div class="product" id="Mango">
+        <img src="./image/mango.jpg" alt="FruitTea Mango" class="product-image">
+        <h3>Mango</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-FruitTea Mango" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-FruitTea Mango" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('FruitTea Mango')">-</button>
+          <input type="number" id="FruitTea Mango" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('FruitTea Mango')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('FruitTea Mango', getSelectedSize('FruitTea Mango'), getQuantity('FruitTea Mango'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('FruitTea Mango', getSelectedSize('FruitTea Mango'))">Remove Order</button>
+      </div>
+      <div class="product" id="GreenApple">
+        <img src="./image/apple.jpg" alt="FruitTea GreenApple" class="product-image">
+        <h3>Green Apple</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-FruitTea GreenApple" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-FruitTea GreenApple" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('FruitTea GreenApple')">-</button>
+          <input type="number" id="FruitTea GreenApple" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('FruitTea GreenApple')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('FruitTea GreenApple', getSelectedSize('FruitTea GreenApple'), getQuantity('FruitTea GreenApple'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('FruitTea GreenApple', getSelectedSize('FruitTea GreenApple'))">Remove Order</button>
+      </div>
+      <div class="product" id="Blueberry">
+        <img src="./image/berry.jpg" alt="FruitTea Blueberry" class="product-image">
+        <h3>Blueberry</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-FruitTea Blueberry" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-FruitTea Blueberry" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('FruitTea Blueberry')">-</button>
+          <input type="number" id="FruitTea Blueberry" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('FruitTea Blueberry')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('FruitTea Blueberry', getSelectedSize('FruitTea Blueberry'), getQuantity('FruitTea Blueberry'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('FruitTea Blueberry', getSelectedSize('FruitTea Blueberry'))">Remove Order</button>
+      </div>
+      <div class="product" id="Strawberry">
+        <img src="./image/berry.jpg" alt="FruitTea Strawberry" class="product-image">
+        <h3>Strawberry</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-FruitTea Strawberry" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-FruitTea Strawberry" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('FruitTea Strawberry')">-</button>
+          <input type="number" id="FruitTea Strawberry" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('FruitTea Strawberry')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('FruitTea Strawberry', getSelectedSize('FruitTea Strawberry'), getQuantity('FruitTea Strawberry'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('FruitTea Strawberry', getSelectedSize('FruitTea Strawberry'))">Remove Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-category" id="frappuccino">
+    <div class="product-grid">
+      <div class="product" id="Frappuccino DarkChocolate">
+        <img src="./image/darkchoco.jpg" alt="Frappuccino DarkChocolate" class="product-image">
+        <h3>Dark Chocolate<br>(With Pearl)</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-Frappe DarkChocolate" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-Frappe DarkChocolate" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('Frappe DarkChocolate')">-</button>
+          <input type="number" id="Frappe DarkChocolate" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('Frappe DarkChocolate')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('Frappe DarkChocolate', getSelectedSize('Frappe DarkChocolate'), getQuantity('Frappe DarkChocolate'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('Frappe DarkChocolate', getSelectedSize('Frappe DarkChocolate'))">Remove Order</button>
+      </div>
+      <div class="product" id="Frappuccino Cheesecake">
+        <img src="./image/cheesecake1.jpg" alt="Frappe Cheesecake" class="product-image">
+        <h3>Cheesecake<br>(With Pearl)</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-Frappe Cheesecake" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-Frappe Cheesecake" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('Frappe Cheesecake')">-</button>
+          <input type="number" id="Frappe Cheesecake" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('Frappe Cheesecake')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('Frappe Cheesecake', getSelectedSize('Frappe Cheesecake'), getQuantity('Frappe Cheesecake'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('Frappe Cheesecake', getSelectedSize('Frappe Cheesecake'))">Remove Order</button>
+      </div>
+      <div class="product" id="Frappuccino JavaChips">
+        <img src="./image/javachip.jpg" alt="Frappe JavaChips" class="product-image">
+        <h3>JavaChips<br>(With Pearl)</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-Frappe JavaChips" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-Frappe JavaChips" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('Frappe JavaChips')">-</button>
+          <input type="number" id="Frappe JavaChips" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('Frappe JavaChips')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('Frappe JavaChips', getSelectedSize('Frappe JavaChips'), getQuantity('Frappe JavaChips'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('Frappe JavaChips', getSelectedSize('Frappe JavaChips'))">Remove Order</button>
+      </div>
+      <div class="product" id="Frappuccino CookiesAndCream">
+        <img src="./image/coc.jpg" alt="Frappuccino" class="product-image">
+        <h3>Cookies and Cream<br>(With pearl)</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-Frappe CookiesAndCream" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-Frappe CookiesAndCream" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('Frappe CookiesAndCream')">-</button>
+          <input type="number" id="Frappe CookiesAndCream" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('Frappe CookiesAndCream')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('Frappe CookiesAndCream', getSelectedSize('Frappe CookiesAndCream'), getQuantity('Frappe CookiesAndCream'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('Frappe CookiesAndCream', getSelectedSize('Frappe CookiesAndCream'))">Remove Order</button>
+      </div>
+      <div class="product" id="Frappuccino Macchiato">
+        <img src="./image/machiato.jpg" alt="Frappe Macchiato" class="product-image">
+        <h3>Macchiato<br>(With Coffee Jelly)</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-Frappe Macchiato" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-Frappe Macchiato" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('Frappe Macchiato')">-</button>
+          <input type="number" id="Frappe Macchiato" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('Frappe Macchiato')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('Frappe Macchiato', getSelectedSize('Frappe Macchiato'), getQuantity('Frappe Macchiato'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('Frappe Macchiato', getSelectedSize('Frappe Macchiato'))">Remove Order</button>
+      </div>
+      <div class="product" id="Frappuccino Moca">
+        <img src="./image/moca.jpg" alt="Frappe Moca" class="product-image">
+        <h3>Moca<br>(With Coffee Jelly)</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-Frappe Moca" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-Frappe Moca" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('Frappe Moca')">-</button>
+          <input type="number" id="Frappe Moca" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('Frappe Moca')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('Frappe Moca', getSelectedSize('Frappe Moca'), getQuantity('Frappe Moca'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('Frappe Moca', getSelectedSize('Frappe Moca'))">Remove Order</button>
+      </div>
+      <div class="product" id="Frappuccino Cappuccino">
+        <img src="./image/cap.jpg" alt="Frappe Cappuccino" class="product-image">
+        <h3>Cappuccino<br>(With Coffee Jelly)</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-Frappe Cappuccino" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-Frappe Cappuccino" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('Frappe Cappuccino')">-</button>
+          <input type="number" id="Frappe Cappuccino" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('Frappe Cappuccino')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('Frappe Cappuccino', getSelectedSize('Frappe Cappuccino'), getQuantity('Frappe Cappuccino'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('Frappe Cappuccino', getSelectedSize('Frappe Cappuccino'))">Remove Order</button>
+      </div>
+      <div class="product" id="Frappuccino Vanilla">
+        <img src="./image/vanilla.jpg" alt="Frappe Vanilla" class="product-image">
+        <h3>Vanilla<br>(With Coffee Jelly)</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-Frappe Vanilla" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-Frappe Vanilla" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('Frappe Vanilla')">-</button>
+          <input type="number" id="Frappe Vanilla" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('Frappe Vanilla')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('Frappe Vanilla', getSelectedSize('Frappe Vanilla'), getQuantity('Frappe Vanilla'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('Frappe Vanilla', getSelectedSize('Frappe Vanilla'))">Remove Order</button>
+      </div>
+      <div class="product" id="Frappuccino SaltedCaramel">
+        <img src="./image/caramel.jpg" alt="Frappe SaltedCaramel" class="product-image">
+        <h3>Salted Caramel<br>(With Coffee Jelly)</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-Frappe SaltedCaramel" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-Frappe SaltedCaramel" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('Frappe SaltedCaramel')">-</button>
+          <input type="number" id="Frappe SaltedCaramel" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('Frappe SaltedCaramel')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('Frappe SaltedCaramel', getSelectedSize('Frappe SaltedCaramel'), getQuantity('Frappe SaltedCaramel'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('Frappe SaltedCaramel', getSelectedSize('Frappe SaltedCaramel'))">Remove Order</button>
+      </div>
+      <div class="product" id="Frappuccino Strawberry">
+        <img src="./image/strawberry1.jpg" alt="Frappuccino" class="product-image">
+        <h3>Strawberry<br>(With Pearl)</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-Frappe Strawberry" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-Frappe Strawberry" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('Frappe Strawberry')">-</button>
+          <input type="number" id="Frappe Strawberry" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('Frappe Strawberry')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('Frappe Strawberry', getSelectedSize('Frappe Strawberry'), getQuantity('Frappe Strawberry'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('Frappe Strawberry', getSelectedSize('Frappe Strawberry'))">Remove Order</button>
+      </div>
+      <div class="product" id="Frappuccino Blueberry">
+        <img src="./image/blueberry1.jpg" alt="Frappuccino" class="product-image">
+        <h3>Blueberry<br>(With Pearl)</h3>
+        <div class="size-options">
+          <label><input type="radio" name="size-Frappe Blueberry" value="29" checked> Solo ₱29</label>
+          <label><input type="radio" name="size-Frappe Blueberry" value="39"> Grande ₱39</label>
+        </div>
+        <div class="quantity-selector">
+          <button onclick="decrementQuantity('Frappe Blueberry')">-</button>
+          <input type="number" id="Frappe Blueberry" value="1" min="1" max="10">
+          <button onclick="incrementQuantity('Frappe Blueberry')">+</button>
+        </div>
+        <button class="btn btn-add" onclick="addToCart('Frappe Blueberry', getSelectedSize('Frappe Blueberry'), getQuantity('Frappe Blueberry'))">Add to Cart</button>
+        <button class="btn btn-remove" onclick="removeFromCart('Frappe Blueberry', getSelectedSize('Frappe Blueberry'))">Remove Order</button>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="product-category" id="addons">
+  <div class="product-grid">
+    <div class="product" id="pearl">
+      <img src="./image/addons.jpg" alt="pearl" class="product-image">
+      <h3>Pearl</h3>
+      <p>Price: ₱9</p>
+      <div class="quantity-selector">
+        <button onclick="decrementQuantity('AddOns Pearl')">-</button>
+        <input type="number" id="AddOns Pearl" value="1" min="1" max="10">
+        <button onclick="incrementQuantity('AddOns Pearl')">+</button>
+      </div>
+      <button class="btn btn-add" onclick="addToCart('AddOns Pearl', null, getQuantity('AddOns Pearl'))">Add to Cart</button>
+      <button class="btn btn-remove" onclick="removeFromCart('AddOns Pearl', null)">Remove Order</button>
+    </div>
+    <div class="product" id="Crystal">
+      <img src="./image/addons1.jpg" alt="Crystal" class="product-image">
+      <h3>Crystal</h3>
+      <p>Price: ₱9</p>
+      <div class="quantity-selector">
+        <button onclick="decrementQuantity('Add-ons Crystal')">-</button>
+        <input type="number" id="Add-ons Crystal" value="1" min="1" max="10">
+        <button onclick="incrementQuantity('Add-ons Crystal')">+</button>
+      </div>
+      <button class="btn btn-add" onclick="addToCart('Add-ons Crystal', null, getQuantity('Add-ons Crystal'))">Add to Cart</button>
+      <button class="btn btn-remove" onclick="removeFromCart('Add-ons Crystal', null)">Remove Order</button>
+    </div>
+    <div class="product" id="Coffee Jelly">
+      <img src="./image/addons.jpg" alt="Coffee Jelly" class="product-image">
+      <h3>Coffee Jelly</h3>
+      <p>Price: ₱9</p>
+      <div class="quantity-selector">
+        <button onclick="decrementQuantity('Add-ons CoffeeJelly')">-</button>
+        <input type="number" id="Add-ons CoffeeJelly" value="1" min="1" max="10">
+        <button onclick="incrementQuantity('Add-ons CoffeeJelly')">+</button>
+      </div>
+      <button class="btn btn-add" onclick="addToCart('Add-ons CoffeeJelly', null, getQuantity('Add-ons CoffeeJelly'))">Add to Cart</button>
+      <button class="btn btn-remove" onclick="removeFromCart('Add-ons CoffeeJelly', null)">Remove Order</button>
+    </div>
+    <div class="product" id="Oreo">
+      <img src="./image/addons3.jpg" alt="Oreo" class="product-image">
+      <h3>Oreo</h3>
+      <p>Price: ₱9</p>
+      <div class="quantity-selector">
+        <button onclick="decrementQuantity('Add-ons Oreo')">-</button>
+        <input type="number" id="Add-ons Oreo" value="1" min="1" max="10">
+        <button onclick="incrementQuantity('Add-ons Oreo')">+</button>
+      </div>
+      <button class="btn btn-add" onclick="addToCart('Add-ons Oreo', null, getQuantity('Add-ons Oreo'))">Add to Cart</button>
+      <button class="btn btn-remove" onclick="removeFromCart('Add-ons Oreo', null)">Remove Order</button>
+    </div>
+    <div class="product" id="Cream Cheese">
+      <img src="./image/addons5.jpg" alt="Cream Cheese" class="product-image">
+      <h3>Cream Cheese</h3>
+      <p>Price: ₱9</p>
+      <div class="quantity-selector">
+        <button onclick="decrementQuantity('Add-ons CreamCheese')">-</button>
+        <input type="number" id="Add-ons CreamCheese" value="1" min="1" max="10">
+        <button onclick="incrementQuantity('Add-ons CreamCheese')">+</button>
+      </div>
+      <button class="btn btn-add" onclick="addToCart('Add-ons CreamCheese', null, getQuantity('Add-ons CreamCheese'))">Add to Cart</button>
+      <button class="btn btn-remove" onclick="removeFromCart('Add-ons CreamCheese', null)">Remove Order</button>
+    </div>
+    <div class="product" id="Cream Float">
+      <img src="./image/addons2.jpg" alt="Cream Float" class="product-image">
+      <h3>Cream Float</h3>
+      <p>Price: ₱9</p>
+      <div class="quantity-selector">
+        <button onclick="decrementQuantity('CreamFloat')">-</button>
+        <input type="number" id="CreamFloat" value="1" min="1" max="10">
+        <button onclick="incrementQuantity('CreamFloat')">+</button>
+      </div>
+      <button class="btn btn-add" onclick="addToCart('CreamFloat', null, getQuantity('CreamFloat'))">Add to Cart</button>
+      <button class="btn btn-remove" onclick="removeFromCart('CreamFloat', null)">Remove Order</button>
+    </div>
+  </div>
+</div>
+
+<div class="cart-section" id="cart-dropdown" style="display: none;">
+  <button class="close-cart" onclick="toggleCartDropdown()">X</button>
+  <h2>Your Cart</h2>
+  <div id="cart-items-container">
+    <div id="cart-items"></div>
+    <div id="cart-total"></div>
+    <button onclick="checkout()">Checkout</button>
+</div>
+</div>
+
+  <div class="cart-icon" onclick="toggleCartDropdown()">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="cart-count-badge">0</span>
+  </div>
+
+  <button onclick="scrollToTop()" id="scrollToTopBtn" class="scroll-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <div class="message-icon" onclick="toggleChatbot()">
+    <i class="fas fa-comments"></i>
+  </div>
+  
+  <div class="chatbot-container">
+    <div class="chatbot-header" onclick="toggleChatbot()">
+      <h4>Chat with us</h4>
+      <span id="chatbot-toggle-icon" class="fas fa-chevron-up"></span>
+    </div>
+    <div class="chatbot-body">
+      <div class="chatbot-messages" id="chatbot-messages">
+        <div class="chatbot-message bot-message">
+          <p>Hi! How can I help you today?</p>
+        </div>
+      </div>
+      <div class="chatbot-choices">
+        <button onclick="sendChoice('opening hours')">Opening Hours</button>
+        <button onclick="sendChoice('delivery service')">Delivery Service</button>
+        <button onclick="sendChoice('payment options')">Payment Options</button>
+        <button onclick="sendChoice('promotions or discounts')">Promotions or Discounts</button>
+        <button onclick="sendChoice('order process')">Order Process</button>
+        <button onclick="sendChoice('recommendations')">Recommendations</button>
+      </div>
+      <div class="chatbot-input">
+        <input type="text" id="chatbot-input" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+  <footer class="footer text-center py-3">
+    <a href="home.html">Home</a> | <a href="menu2.html">Product</a> | <a href="aboutus.html">About Us</a> | <a href="contact.html">Contact Us</a> | <a href="location.html">Location</a> | <a href="faq.html">FAQs</a>
+      <p>&copy;2025 Uncle's Brew<br>All Rights Reserved.</p>
+  </footer>
+
+  <script src="menu2.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  <script>
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    window.onscroll = function() {
+      var scrollToTopBtn = document.getElementById('scrollToTopBtn');
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        scrollToTopBtn.style.display = 'block';
+      } else {
+        scrollToTopBtn.style.display = 'none';
+      }
+    };
+
+    function toggleCartDropdown() {
+      var cartDropdown = document.getElementById('cart-dropdown');
+      cartDropdown.style.display = (cartDropdown.style.display === 'none' || cartDropdown.style.display === '') ? 'block' : 'none';
+    }
+
+    function updateCartCount(count) {
+      document.getElementById('cart-count-badge').innerText = count;
+    }
+
+    window.onload = function() {
+      showCategory('icedcoffee');
+      updateCart();
+    };
+
+    function showCategory(categoryId) {
+      var categories = document.getElementsByClassName('product-category');
+      for (var i = 0; i < categories.length; i++) {
+        categories[i].style.display = 'none';
+      }
+      document.getElementById(categoryId).style.display = 'block';
+      updateCart();
+    }
+  </script>
+</body>
+</html>
